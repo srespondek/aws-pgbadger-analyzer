@@ -7,7 +7,7 @@ ENV PGBADGER_DATA=/data
 
 RUN apt-get update && apt-get install -y \
   python3=3.8.2-0ubuntu2 \
-  python3-pip=20.0.2-5ubuntu1.3 \
+  python3-pip=20.0.2-5ubuntu1.4 \
   pgbadger=$PGBADGER_VERSION \
   && mkdir -p $PGBADGER_DATA/error /opt 
 
