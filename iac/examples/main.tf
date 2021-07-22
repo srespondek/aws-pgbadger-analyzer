@@ -17,13 +17,13 @@ locals {
 
 
 module "storage" {
-  source = "git@github.com:chaosgears/aws-pgbadger-analyzer.git//iac/storage?ref=v1.0.0"
+  source = "git@github.com:srespondek/aws-pgbadger-analyzer.git//iac/storage?ref=v1.0.0"
   bucket_name = "aws-pgbadger-analyzer-reports-${var.environment}"
   region = var.region
 }
 
 module "iam" {
-  source  = "git@github.com:chaosgears/aws-pgbadger-analyzer.git//iac/iam?ref=v1.0.0"
+  source  = "git@github.com:srespondek/aws-pgbadger-analyzer.git//iac/iam?ref=v1.0.0"
 
   region = var.region
   vpc_id = local.vpc_id
@@ -39,7 +39,7 @@ module "iam" {
 }
 
 module "repo" {
-  source  = "git@github.com:chaosgears/aws-pgbadger-analyzer.git//iac/repo?ref=v1.0.0"
+  source  = "git@github.com:srespondek/aws-pgbadger-analyzer.git//iac/repo?ref=v1.0.0"
 
   ecr_repository_name = local.ecr_repository_name
   region = var.region
@@ -47,7 +47,7 @@ module "repo" {
 }
 
 module "builder" {
-  source  = "git@github.com:chaosgears/aws-pgbadger-analyzer.git//iac/builder?ref=v1.0.0"
+  source  = "git@github.com:srespondek/aws-pgbadger-analyzer.git//iac/builder?ref=v1.0.0"
 
   region = var.region
   vpc_id = local.vpc_id
@@ -63,7 +63,7 @@ module "builder" {
 }
 
 module "executor_tenant_a" {
-  source  = "git@github.com:chaosgears/aws-pgbadger-analyzer.git//iac/executor?ref=v1.0.0"
+  source  = "git@github.com:srespondek/aws-pgbadger-analyzer.git//iac/executor?ref=v1.0.0"
 
 
   tenant = "a"
@@ -84,7 +84,7 @@ module "executor_tenant_a" {
 }
 
 module "executor_tenant_b" {
-  source  = "git@github.com:chaosgears/aws-pgbadger-analyzer.git//iac/executor?ref=v1.0.0"
+  source  = "git@github.com:srespondek/aws-pgbadger-analyzer.git//iac/executor?ref=v1.0.0"
 
   tenant = "b"
   code_build_stack_name = "aws-pgbadger-executor-${var.environment}"
